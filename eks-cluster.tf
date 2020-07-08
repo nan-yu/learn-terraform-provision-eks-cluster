@@ -1,8 +1,8 @@
 module "eks" {
-  source       = "terraform-aws-modules/eks/aws"
-  cluster_name = local.cluster_name
-  subnets      = module.vpc.private_subnets
-
+  source          = "terraform-aws-modules/eks/aws"
+  cluster_name    = local.cluster_name
+  subnets         = module.vpc.private_subnets
+  manage_aws_auth = false
   tags = {
     Environment = "training"
     GithubRepo  = "terraform-aws-eks"
